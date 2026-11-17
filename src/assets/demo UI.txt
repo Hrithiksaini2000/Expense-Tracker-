@@ -1,0 +1,380 @@
+
+import './App.css'
+
+const transactions = [
+  {
+    id: 1,
+    title: 'Monthly Salary',
+    category: 'Salary',
+    date: '14 Nov 2026',
+    amount: 45000,
+    type: 'income',
+    icon: '💼',
+  },
+  {
+    id: 2,
+    title: 'Grocery Shopping',
+    category: 'Food',
+    date: '13 Nov 2026',
+    amount: 2500,
+    type: 'expense',
+    icon: '🛒',
+  },
+  {
+    id: 3,
+    title: 'Netflix Subscription',
+    category: 'Entertainment',
+    date: '12 Nov 2026',
+    amount: 499,
+    type: 'expense',
+    icon: '🎬',
+  },
+  {
+    id: 4,
+    title: 'Freelance Project',
+    category: 'Freelance',
+    date: '11 Nov 2026',
+    amount: 8000,
+    type: 'income',
+    icon: '💻',
+  },
+  {
+    id: 5,
+    title: 'Petrol',
+    category: 'Travel',
+    date: '10 Nov 2026',
+    amount: 1200,
+    type: 'expense',
+    icon: '⛽',
+  },
+]
+
+function App() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800">
+
+      {/* Header */}
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-600 text-xl text-white">
+              ₹
+            </div>
+
+            <div>
+              <h1 className="text-xl font-bold text-slate-900">
+                Expense<span className="text-indigo-600">Track</span>
+              </h1>
+              <p className="text-xs text-slate-500">
+                Manage your money smarter
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button className="hidden rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium hover:bg-slate-50 sm:block">
+              November 2026
+            </button>
+
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 font-bold text-indigo-700">
+              U
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+
+        {/* Welcome section */}
+        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">
+              Dashboard Overview
+            </h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Here's what's happening with your money.
+            </p>
+          </div>
+
+          <button className="rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">
+            + Add Transaction
+          </button>
+        </div>
+
+        {/* Summary Cards */}
+        <section className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          {/* Balance */}
+          <div className="rounded-2xl bg-indigo-600 p-6 text-white shadow-sm">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium text-indigo-100">
+                Total Balance
+              </p>
+              <span className="rounded-lg bg-white/15 px-3 py-2">₹</span>
+            </div>
+
+            <h3 className="mt-5 text-3xl font-bold">
+              ₹48,801
+            </h3>
+
+            <p className="mt-3 text-sm text-indigo-100">
+              Your available balance
+            </p>
+          </div>
+
+          {/* Income */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium text-slate-500">
+                Total Income
+              </p>
+              <span className="rounded-lg bg-emerald-50 px-3 py-2 text-emerald-600">
+                ↗
+              </span>
+            </div>
+
+            <h3 className="mt-5 text-3xl font-bold text-slate-900">
+              ₹53,000
+            </h3>
+
+            <p className="mt-3 text-sm text-emerald-600">
+              + Income received
+            </p>
+          </div>
+
+          {/* Expenses */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium text-slate-500">
+                Total Expenses
+              </p>
+              <span className="rounded-lg bg-rose-50 px-3 py-2 text-rose-600">
+                ↘
+              </span>
+            </div>
+
+            <h3 className="mt-5 text-3xl font-bold text-slate-900">
+              ₹4,199
+            </h3>
+
+            <p className="mt-3 text-sm text-rose-600">
+              Expenses this month
+            </p>
+          </div>
+
+        </section>
+
+        {/* Main Dashboard Content */}
+        <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+          {/* Add Transaction Form */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-1">
+
+            <h3 className="text-lg font-bold text-slate-900">
+              Add Transaction
+            </h3>
+
+            <p className="mt-1 text-sm text-slate-500">
+              Record your income or expenses.
+            </p>
+
+            <form className="mt-6 space-y-5">
+
+              {/* Transaction Type */}
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Transaction Type
+                </label>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    className="rounded-lg bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700 ring-1 ring-emerald-200"
+                  >
+                    + Income
+                  </button>
+
+                  <button
+                    type="button"
+                    className="rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600"
+                  >
+                    - Expense
+                  </button>
+                </div>
+              </div>
+
+              {/* Title */}
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Transaction Title
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Grocery Shopping"
+                  className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                />
+              </div>
+
+              {/* Amount */}
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Amount (₹)
+                </label>
+
+                <input
+                  type="number"
+                  placeholder="Enter amount"
+                  className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                />
+              </div>
+
+              {/* Category */}
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Category
+                </label>
+
+                <select className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500">
+                  <option>Select category</option>
+                  <option>Salary</option>
+                  <option>Food</option>
+                  <option>Shopping</option>
+                  <option>Travel</option>
+                  <option>Bills</option>
+                  <option>Entertainment</option>
+                  <option>Freelance</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              {/* Date */}
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Date
+                </label>
+
+                <input
+                  type="date"
+                  className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-500"
+                />
+              </div>
+
+              <button
+                type="button"
+                className="w-full rounded-lg bg-indigo-600 py-3 font-semibold text-white transition hover:bg-indigo-700"
+              >
+                Save Transaction
+              </button>
+
+            </form>
+          </div>
+
+          {/* Transaction List */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2">
+
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">
+                  Recent Transactions
+                </h3>
+                <p className="mt-1 text-sm text-slate-500">
+                  Your latest financial activity.
+                </p>
+              </div>
+
+              <button className="text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+                View All
+              </button>
+            </div>
+
+            {/* Search */}
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <input
+                type="text"
+                placeholder="Search transactions..."
+                className="min-w-0 flex-1 rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-500"
+              />
+
+              <select className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500">
+                <option>All Categories</option>
+                <option>Food</option>
+                <option>Shopping</option>
+                <option>Travel</option>
+                <option>Salary</option>
+              </select>
+            </div>
+
+            {/* Filter Buttons */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <button className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white">
+                All
+              </button>
+
+              <button className="rounded-lg bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-600">
+                Income
+              </button>
+
+              <button className="rounded-lg bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-600">
+                Expense
+              </button>
+            </div>
+
+            {/* Transaction Items */}
+            <div className="mt-5 divide-y divide-slate-100">
+
+              {transactions.map((transaction) => (
+                <div
+                  key={transaction.id}
+                  className="flex items-center justify-between gap-3 py-4"
+                >
+
+                  <div className="flex min-w-0 items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-xl">
+                      {transaction.icon}
+                    </div>
+
+                    <div className="min-w-0">
+                      <h4 className="truncate text-sm font-semibold text-slate-900">
+                        {transaction.title}
+                      </h4>
+
+                      <p className="mt-1 text-xs text-slate-500">
+                        {transaction.category} · {transaction.date}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p
+                    className={`shrink-0 text-sm font-bold ${
+                      transaction.type === 'income'
+                        ? 'text-emerald-600'
+                        : 'text-rose-600'
+                    }`}
+                  >
+                    {transaction.type === 'income' ? '+' : '-'}₹
+                    {transaction.amount.toLocaleString('en-IN')}
+                  </p>
+
+                </div>
+              ))}
+
+            </div>
+
+            {/* Transaction Count */}
+            <div className="mt-4 border-t border-slate-100 pt-4 text-center text-sm text-slate-500">
+              Showing {transactions.length} transactions
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  )
+}
+
+export default App

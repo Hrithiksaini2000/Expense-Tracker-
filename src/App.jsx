@@ -27,7 +27,8 @@ export const App = () => {
         <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
           <section className="flex items-center justify-between">
             <div className="flex flex-col items-center">
-              <h2 className="text-slate-900">Dashboard Overview</h2>
+              <h2 className="text-slate-900 text-2xl font-bold">Dashboard Overview</h2>
+              <p>Here's what's happening with your money.</p>
             </div>
             <div></div>
           </section>

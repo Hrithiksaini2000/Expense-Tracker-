@@ -25,10 +25,39 @@ export const App = () => {
         </header>
 
         <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
-          <section className="flex items-center justify-between">
-            <div className="flex flex-col items-center">
+
+          {/* Welcome Section */}
+          <section className="flex items-center justify-between gap-3">
+            <div className="flex flex-col">
               <h2 className="text-slate-900 text-2xl font-bold">Dashboard Overview</h2>
-              <p>Here's what's happening with your money.</p>
+              <p className="text-sm sm:text-base">Here's what's happening with your money.</p>
+            </div>
+            <div className="bg-indigo-600 px-4 py-3 rounded-lg shadow-sm transition hover:bg-indigo-700">
+              <button className="text-white text-sm sm:text-base">+ Add Transaction</button>
+            </div>
+          </section>
+
+          {/* Summary Cards */}
+          <section className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
+            <div className="bg-indigo-700 text-white p-5">
+              <div className="flex justify-between items-center">
+                <h2>Total Balance</h2>
+                <p className="bg-white/15 rounded-xl px-4 py-3">₹</p>
+              </div>
+              <div>
+                ₹ 25000
+              </div>
+              <div>
+                Your available balance
+              </div>
+            </div>
+            <div>
+              <div className="bg-white">
+                <div className="flex justify-between">
+                  <h2>Total Income</h2>
+                  <p>↗</p>
+                </div>
+              </div>
             </div>
             <div></div>
           </section>

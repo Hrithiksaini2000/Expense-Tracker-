@@ -27,7 +27,7 @@ export const App = () => {
         <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
 
           {/* Welcome Section */}
-          <section className="flex items-center justify-between gap-3">
+          <section className="flex items-center justify-between gap-3 mb-5">
             <div className="flex flex-col">
               <h2 className="text-slate-900 text-2xl font-bold">Dashboard Overview</h2>
               <p className="text-sm sm:text-base">Here's what's happening with your money.</p>
@@ -38,28 +38,43 @@ export const App = () => {
           </section>
 
           {/* Summary Cards */}
-          <section className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
-            <div className="bg-indigo-700 text-white p-5">
-              <div className="flex justify-between items-center">
+          <section className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-indigo-600 text-white p-5 rounded-2xl">
+              <div className="flex justify-between items-center mb-5">
                 <h2>Total Balance</h2>
                 <p className="bg-white/15 rounded-xl px-4 py-3">₹</p>
               </div>
-              <div>
-                ₹ 25000
+              <div className="text-4xl font-bold mb-5">
+                ₹25,000
               </div>
-              <div>
+              <div className="mb-3">
                 Your available balance
               </div>
             </div>
-            <div>
-              <div className="bg-white">
-                <div className="flex justify-between">
-                  <h2>Total Income</h2>
-                  <p>↗</p>
-                </div>
+            <div className="bg-white text-black p-5 rounded-2xl border border-gray-300">
+              <div className="flex justify-between items-center mb-5">
+                <h2>Total Income</h2>
+                <p className="bg-emerald-50 text-emerald-600 rounded-xl px-4 py-3">↗</p>
+              </div>
+              <div className="text-4xl font-bold mb-5">
+                ₹25,000
+              </div>
+              <div className="mb-3 text-emerald-600">
+                + Income received
               </div>
             </div>
-            <div></div>
+            <div className="bg-white text-black p-5 rounded-2xl border border-gray-300">
+              <div className="flex justify-between items-center mb-5">
+                <h2>Total Expenses</h2>
+                <p className="bg-rose-50 rounded-xl text-rose-600 px-4 py-3">↘</p>
+              </div>
+              <div className="text-4xl font-bold mb-5">
+                ₹15,000
+              </div>
+              <div className="mb-3 text-rose-600">
+                Expenses this month
+              </div>
+            </div>
           </section>
         </main>
       </div>
